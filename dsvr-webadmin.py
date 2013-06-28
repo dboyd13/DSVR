@@ -18,13 +18,6 @@
 # "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
 # either express or implied. See the License for the specific 
 # language governing permissions and limitations under the License.
-#
-# Portions of code from the work of Peter Kacherginsky's dnschef - http://thesp$
-# iphelix [at] thesprawl.org.
-#
-# Copyright (C) 2013 Peter Kacherginsky
-# All rights reserved.
-#
 
 import re
 import os
