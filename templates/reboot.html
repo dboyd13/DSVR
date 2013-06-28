@@ -1,0 +1,14 @@
+<!doctype html>
+<Title>DSVR - Reboot</Title>
+<head><link href="/static/css/main.css" rel="stylesheet" media="screen"></head>
+<meta name="viewport" content="width=320" />
+
+<h4>Are you sure you want to REBOOT the system?</h4>
+<h4>{{ peer }}</h4>
+
+<form name="myform" action="/reboot" method="POST">
+<input type="submit" class="caution" value="Yes"></input>
+</form>
+<form name="myform2" action="/" method="GET">
+<input type="submit" class="normal" value="No"></input>
+</form>	

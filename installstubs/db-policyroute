@@ -1,0 +1,7 @@
+#!/bin/sh
+#Based on input (e.g. ppp0) output number (i.e. 0)
+TABLENUM=`echo ${IFNAME} | grep -o '[0-9]*'`
+#Add one to value, as table numbers start from 1 (not 0)
+TABLENUM=$(($TABLENUM + 1))
+
+sudo ip route add dev ${IFNAME} table $TABLENUM

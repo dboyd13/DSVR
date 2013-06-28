@@ -1,0 +1,36 @@
+#! /bin/sh
+PIDFILE="/var/run/dsvr-webadmin.pid"
+case "$1" in
+  start)
+    if [ -f "${PIDFILE}" ];
+    then
+     PID="`cat ${PIDFILE}`"
+     if egrep dsvr-webadmin.py "/proc/${PID}/cmdline" 2>&1 > /dev/null;
+     then
+      echo "Already Active!"
+      exit 16
+    fi
+    echo "Removing PID file"
+    rm -f "${PIDFILE}"
+    fi
+    echo -n $$ > "${PIDFILE}"
+    echo "PID file created" 
+    python /replacemewithsed/dsvr-webadmin.py
+    echo "dsvr-webadmin Started"
+    ;;
+  stop)
+    PIDID=`cat ${PIDFILE}`
+    pkill -9 -f dsvr-webadmin.py
+    rm -f "${PIDFILE}"
+    echo "dsvr-webadmin Stopped"
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/dsvr-webadmin {start|stop|restart}"
+    exit 1
+    ;;
+esac
+exit 0

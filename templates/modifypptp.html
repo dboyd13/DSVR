@@ -1,0 +1,39 @@
+<!doctype html>
+<Title>DSVR - {{ peerdata[peerfile]['friendlyname'] }}</Title>
+<head><link href="/static/css/main.css" rel="stylesheet" media="screen"></head>
+<meta name="viewport" content="width=320" />
+
+<h4>{{ peerdata[peerfile]['friendlyname'] }}</h4>
+<hr>
+
+<form name="myform" action="/modifypptp" method="POST">
+<p>
+Friendly Name:<input type="text" name="friendlyname" value={{ peerdata[peerfile]['friendlyname'] }}></input><br>
+VPN Server: <input type="text" name="vpnserver" value={{ peerdata[peerfile]['vpnserver'][0]}}></input><br>
+Username: <input type="text" name="username" value={{ peerdata[peerfile]['username']}}></input><br>
+Password: <input type="password" name="password" value={{ peerdata[peerfile]['password']}}></input><br>
+MTU: <input type="text" name="mtu" value={{ peerdata[peerfile]['mtu']}}></input><br>
+MRU: <input type="text" name="mru" value={{ peerdata[peerfile]['mru']}}></input><br>
+lcp-echo-failure: <input type="text" name="lcp-echo-failure" value={{ peerdata[peerfile]['lcp-echo-failure']}}></input><br>
+lcp-echo-interval: <input type="text" name="lcp-echo-interval" value={{ peerdata[peerfile]['lcp-echo-interval']}}></input><br>
+idle: <input type="text" name="idle" value={{ peerdata[peerfile]['idle']}}></input></p>
+<hr>
+Interesting Domains: </p>
+{% for domain in peerdata[peerfile]['interestingdomains'].split(","): %}
+<input type="text" name="domainfield" value={{ domain }}></input>
+<br>
+{% endfor %}
+<input type="text" name="domainfield" value=""></input>
+<br>
+<hr>
+<input type="submit" class="normal" value="Update"></input>
+<input type="hidden" value={{ peerfile }} name="peer"></input>
+</form>
+<form name="delform" action="/delpptp" method="GET">
+<input type="hidden" name="peer" value={{peerfile}}></input>
+<input type="submit" class="caution" value="Delete"></input>
+</form>
+<form>
+<input type="button" class="normal" value="Back" ONCLICK="window.location.href='/'"></input>
+</form>
+	   

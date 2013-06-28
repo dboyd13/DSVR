@@ -1,0 +1,18 @@
+#! /bin/sh
+case "$1" in
+  start)
+    echo "Sleeping for 10s"
+    sleep 10
+    echo "Restarting"
+    ifdown eth0 && ifup eth0
+    echo "ETH0 Re-started"
+    ;;
+  stop)
+    echo "Stop - NOT implemented"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/DB-restarteth0 {start|stop}"
+    exit 1
+    ;;
+esac
+exit 0

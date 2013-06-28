@@ -1,0 +1,15 @@
+<!doctype html>
+<Title>DSVR - Delete {{ peer }}</Title>
+<head><link href="/static/css/main.css" rel="stylesheet" media="screen"></head>
+<meta name="viewport" content="width=320" />
+
+<h4>Are you sure you want to delete the PPTP peer file:</h4>
+<h4>{{ peer }}</h4>
+
+<form name="myform" action="/delpptp" method="POST">
+<input type="submit" class="caution" value="Yes"></input>
+<input type="hidden" value={{ peer }} name="peer"></input>
+</form>
+<form name="myform2" action="/" method="GET">
+<input type="submit" class="normal" value="No"></input>
+</form>	

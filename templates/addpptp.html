@@ -1,0 +1,27 @@
+<!doctype html>
+<Title>DSVR - Add PPTP</Title>
+<head><link href="/static/css/main.css" rel="stylesheet" media="screen"></head>
+<meta name="viewport" content="width=320" />
+
+<form name="myform" action="/addpptp" method="POST">
+Friendly Name: <input type="text" name="friendlyname" value=""></input><br>
+VPN Server: <input type="text" name="vpnserver" value=""></input><br>
+Username: <input type="text" name="username" value=""></input><br>
+Password: <input type="password" name="password" value=""></input><br>
+MTU: <input type="text" name="mtu" value="1450"></input><br>
+MRU: <input type="text" name="mru" value="1450"></input><br>
+lcp-echo-failure: <input type="text" name="lcp-echo-failure" value="3"></input><br>
+lcp-echo-interval: <input type="text" name="lcp-echo-interval" value="2"></input><br>
+idle: <input type="text" name="idle" value="0"></input><br>
+<hr>
+Interesting Domains:<br>
+<input type="text" name="domainfield" value=""></input><br>
+<input type="text" name="domainfield" value=""></input><br>
+<input type="text" name="domainfield" value=""></input><br>
+<input type="text" name="domainfield" value=""></input><br>
+<input type="text" name="domainfield" value=""></input><br>
+<hr>
+<INPUT Type="button" class="normal" VALUE="Back" onClick="history.go(-1);return true;">
+<input type="submit" class="normal" value="Add"></input>
+</form>
+	   

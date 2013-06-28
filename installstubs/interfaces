@@ -1,0 +1,18 @@
+auto lo
+iface lo inet loopback
+
+#Onboard NIC connecting to the MODEM/CE (Internet)
+auto eth0
+iface eth0 inet dhcp
+post-up route del default gw 10.254.254.254
+post-up route add default dev eth0
+
+#USB NIC connecting to the Internal Router (DDwrt)
+auto eth1
+iface eth1 inet static
+address 10.254.254.254
+netmask 255.255.255.0
+network 10.254.254.0
+broadcast 10.254.254.255
+gateway 10.254.254.254
+post-up route add -net 192.168.1.0 netmask 255.255.255.0 gw 10.254.254.254 dev eth1

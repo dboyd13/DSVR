@@ -1,0 +1,113 @@
+body {
+	margin: 2;
+	padding: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #FFFFFF;
+	background:#000000;
+}
+
+hr {
+	color: #ffffff;
+	border: 0;
+	background-color: #ffffff;
+	height: 1px;
+	width: 320px;
+	margin-left: 0;
+}
+
+p {font-size:14px;}
+
+A:link {text-decoration: underline; color: #ffffff;}
+A:visited {text-decoration: none; color: #ffffff;}
+A:active {text-decoration: none}
+A:hover {text-decoration: underline;}
+
+form {display: inline;}
+
+table {
+	font: 14px Verdana, Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+}
+
+td {
+	border:1px solid #6c6f7f;
+}
+
+input {
+	background:#e5e5e5;
+	border: 0;
+}
+
+input.normal {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	padding: 5px 15px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#ffffff);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ffffff),
+		to(#ffffff));
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0),
+		inset 0px 0px 0px rgba(161,142,016,0);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0),
+		inset 0px 0px 0px rgba(161,142,016,0);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0),
+		inset 0px 0px 0px rgba(161,142,016,0);
+	text-shadow:
+		0px -1px 3px rgba(255,255,255,0),
+		0px 1px 0px rgba(255,255,255,0);
+}
+
+input.caution {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	padding: 5px 15px;;
+	background: -moz-linear-gradient(
+		top,
+		#f25353 0%,
+		#f25353);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#f25353),
+		to(#f25353));
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0),
+		inset 0px 0px 0px rgba(161,142,016,0);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0),
+		inset 0px 0px 0px rgba(161,142,016,0);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0),
+		inset 0px 0px 0px rgba(161,142,016,0);
+	text-shadow:
+		0px -1px 3px rgba(255,255,255,0),
+		0px 1px 0px rgba(255,255,255,0);
+}
+
+div.header {
+	color: #FFFFFF;
+	font: 18px Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+
+div.sectionheader {
+	color: #FFFFFF;
+	font: 14px Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}

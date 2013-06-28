@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=320" />
+<html lang="en">
+
+<head><link href="/static/css/main.css" rel="stylesheet" media="screen"></head>
+<title>DSVR - Domain-Specific VPN Router</title>
+
+<div class="head">DSVR - Domain-Specific VPN Router</div>
+<hr>
+<div class="sectionheader">VPN Connections</div>
+<table width="320">
+       {% for indexitem in peerdata: %}
+   <tr>
+       <td> <a href="/modifypptp?peer={{ indexitem }}">{{ peerdata[indexitem]['friendlyname'] }}</a></td>
+       <td> {{ peerdata[indexitem]['interface'] }}</td>
+       {% if peerdata[indexitem]['interface'] in network.interfaces(): %}
+	   {% if 2 in network.ifaddresses(peerdata[indexitem]['interface']): %}
+	   <td style="background: #24cc6c;">Up</td>
+	   {% endif %}
+       {% else %}
+	   <td style="background: #f25353;">Down</td>
+       {% endif %}
+       <td>
+       {% for domain in peerdata[indexitem]['interestingdomains'].split(","): %}
+       {{ domain }}<br>
+       {% endfor %}
+       </td>
+	   <td>
+	   {{ numofstaticroutes[indexitem][1]}}
+   </td>
+   </tr>
+ {% endfor %}	
+      
+</table>
+<br>
+
+<form name="myform" action="/addpptp" method="GET">
+<input type="submit" value="add" class="normal"></input>
+</form>
+<hr>
+
+<div class="sectionheader">Network interfaces</div>
+
+<table width="320">
+{% for interface in network.interfaces(): %}
+   <tr>
+	   {% if "lo" not in interface:%}
+	   <td>{{ interface }}</td>
+	   <td>
+	   {% if 2 in network.ifaddresses(interface): %}
+	   {{ network.ifaddresses(interface)[2][0]['addr'] }}
+	   {% else %}
+	   Not assigned
+	   {% endif %}
+	   </td>
+	   {% if interface in staticints: %}
+	   <td>Static</td>
+	   {% else %}
+	   <td>DCHP</td>
+	   {% endif %}
+{% endif %}
+</tr>
+{% endfor %}
+</table>
+<hr>
+<p>DSVR service status:
+	{% if dsvrstatus == 1 %}
+	Running
+	{% else %}
+	Stopped
+	{% endif %}
+
+<form name="dsvrprocess" action="/dsvrprocess" method="POST">
+<input type="submit" name="action" value="stop" class="normal"></input>
+</form>
+<form name="dsvrprocess" action="/dsvrprocess" method="POST">
+<input type="submit" name="action" value="start" class="normal"></input>
+</form>
+<form name="dsvrprocess" action="/dsvrprocess" method="POST">
+<input type="submit" name="action" value="restart" class="normal"></input>
+</form>
+</p>
+
+<hr>
+<p>
+DNS server (normal traffic): {{ config['Global']['dns-upstream-server'] }}<br>
+DNS server (interesting traffic): {{ config['Global']['dns-vpn-server'] }}<br>
+TTL override value: {{ config['Global']['ttl-override-value'] }}<br>
+</p>
+
+
+<hr>
+<p style="font-size:10px;">Uptime: {{ uptime }} |
+CPU % Util: {{ sysstats[0][1] }}% |
+Memory Util: {{ sysstats[1][1] }}%
+</p>	   
+<hr>
+<form name="rebootform" action="/reboot" method="GET">
+<input type="submit" class="caution" value="Reboot"></input>
+</form>
