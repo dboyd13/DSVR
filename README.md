@@ -12,6 +12,9 @@ This project serves to address each of the above - see the FEATURES section.
 
 **FEATURES**
 
+![SCREENSHOT](http://s21.postimg.org/hram13auf/dsvr_logical_v0_2.png)
+![SCREENSHOT](http://s22.postimg.org/6rg7xnif5/dsvr_physical_v0_2.png)
+
 1) Per-site VPN routing down specific VPN connections whilst all other traffic goes down the native internet connection, for example:  
 
     ussite1.com -> United States based PPTP VPN
@@ -25,8 +28,10 @@ This project serves to address each of the above - see the FEATURES section.
 4) User specified DNS server for per-site DNS queries, for privacy from your ISP.  
 5) Stateful firewall (SPI)  
 6) Port Forwarding & uPnP on existing router/AP not affected (see TODO)  
-7) Web administration portal  
-8) CLI access via SSH  
+7) CLI access via SSH  
+8) Web administration portal 
+
+![SCREENSHOT] (http://s11.postimg.org/mo6lurjyr/screenshot1.jpg)
 
 **PRE-REQUISTES**
 
@@ -52,12 +57,12 @@ New components required:
 
 **TESTED WITH**
 
-1) Raspbian Wheezy  
+1) Raspbian Wheezy (2012-12-16)
 2) StrongVPN PPTP VPN accounts  
 
 **INSTALLATION**  
 
-1) Flash your SD card with Raspbain (Wheezy)  
+1) Flash your SD card with Raspbain (Wheezy 2012-12-16) http://downloads.raspberrypi.org/images/raspbian/2012-12-16-wheezy-raspbian/2012-12-16-wheezy-raspbian.zip
 2) Boot-up your RPi with the on-board NIC plugged into your network (without the USB NIC module installed), to obtain a DHCP address  
 3) Determine the RPi IP address (hint: look at your router web interface), and SSH into it - ssh pi@<ipaddress>  
 4) Copy the dsvr-xxx.tar.gz into your home folder (/home/pi) - copy using FTP over SSH (SFTP) (e.g. Cyberduck)  
