@@ -1,4 +1,4 @@
-**DSVR (Domain-Specific VPN Router)**
+###DSVR (Domain-Specific VPN Router)###
 
 **PURPOSE**
 
@@ -115,9 +115,9 @@ Should be working now. Enjoy.
 
 1) Short Term
 
-	- 'DMZ' for inside interface to circumvent dbl-nat issues (e.g. uPnP, port forwarding, VPN server)  
+    - 'DMZ' for inside interface to circumvent dbl-nat issues (e.g. uPnP, port forwarding, VPN server)  
 
-	installdsvrpackage.sh  
+       installdsvrpackage.sh  
 	- Run/debug and fix.  
 	- Add Y/N prompt to explain what needs to happen once it completes (wiring, IP to connect to, setup PPTP connections)  
 
@@ -133,15 +133,17 @@ Should be working now. Enjoy.
 	- Read and display VERSION file  
 
 2) Medium Term  
-	- make webadmin look better on iPad webkit browser  
-	- form input validation  
-	- Authentication for webadmin  
+
+    - make webadmin look better on iPad webkit browser  
+    - form input validation  
+    - Authentication for webadmin  
 
 3) Long Term  
-	- Add support for OpenVPN  
-	- Allow change from 10.254.254.254 inside default (remember dhcpd.conf and DNSRouter init changes needed too!)  
-	- Installer to prompt user for variables such as - inside IP address, LAN segment, install location  
-	- don't assume 192.168.1.0 is LAN segment for routes and iptables  
+	
+    - Add support for OpenVPN  
+    - Allow change from 10.254.254.254 inside default (remember dhcpd.conf and DNSRouter init changes needed too!)  
+    - Installer to prompt user for variables such as - inside IP address, LAN segment, install location  
+    - don't assume 192.168.1.0 is LAN segment for routes and iptables  
 
 **CREDIT**
 
@@ -171,6 +173,7 @@ Should be working now. Enjoy.
     either express or implied. See the License for the specific 
     language governing permissions and limitations under the License.
 
-**LINKS**
-	- ASCII diagram (http://www.asciiflow.com/#Draw8450497916007412677/1697158644)
-	- To properly calc memory usage due to disk caching - http://www.linuxatemyram.com/index.html
+**LINKS**  
+
+    - ASCII diagram (http://www.asciiflow.com/#Draw8450497916007412677/1697158644)
+    - To properly calc memory usage due to disk caching - http://www.linuxatemyram.com/index.html
