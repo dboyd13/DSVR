@@ -64,9 +64,9 @@ New components required:
 
 1) Flash your SD card with Raspbain (Wheezy 2012-12-16) http://downloads.raspberrypi.org/images/raspbian/2012-12-16-wheezy-raspbian/2012-12-16-wheezy-raspbian.zip  
 2) Boot-up your RPi with the on-board NIC plugged into your network (without the USB NIC module installed), to obtain a DHCP address  
-3) Determine the RPi IP address (hint: look at your router web interface), and SSH into it - ssh pi@<ipaddress>  
-4) Copy the dsvr-xxx.tar.gz into your home folder (/home/pi) - copy using FTP over SSH (SFTP) (e.g. Cyberduck)  
-5) Extract the tar file, cd into it's directory  
+3) Determine the RPi IP address (hint: look at your router web interface), and SSH into it - ssh pi@ipaddress
+4) Copy the dsvr-xxx.tar.gz/zip into your home folder (/home/pi) - copy using FTP over SSH (SFTP) (e.g. Cyberduck)  
+5) Extract the tar/zip file, cd into it's directory  
 6) Run the install script with sudo - sudo ./installdsvrpackage.sh - take note of any errors that may come up. This will take a while, as it will be installing a number of packages via the web.  
 7) Follow the prompts, and once it completes issue the 'shutdown -h -t now' command to power-down the RPi  
 8) With the power-off, plug the USB NIC into an available USB port.  
