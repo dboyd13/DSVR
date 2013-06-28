@@ -57,7 +57,7 @@ New components required:
 
 **TESTED WITH**
 
-1) Raspbian Wheezy (2012-12-16)
+1) Raspbian Wheezy (2012-12-16)  
 2) StrongVPN PPTP VPN accounts  
 
 **INSTALLATION**  
