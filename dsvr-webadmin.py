@@ -146,6 +146,36 @@ def parsepeerdata():
         peer_detail['options'] = peer_options
         peer_index[indexitem] = peer_detail
     return peer_index
+    
+def uptime():
+ 
+     try:
+         f = open( "/proc/uptime" )
+         contents = f.read().split()
+         f.close()
+     except:
+        return "Cannot open uptime file: /proc/uptime"
+ 
+     total_seconds = float(contents[0])
+ 
+     MINUTE  = 60
+     HOUR    = MINUTE * 60
+     DAY     = HOUR * 24
+ 
+     days    = int( total_seconds / DAY )
+     hours   = int( ( total_seconds % DAY ) / HOUR )
+     minutes = int( ( total_seconds % HOUR ) / MINUTE )
+     seconds = int( total_seconds % MINUTE )
+ 
+     string = ""
+     if days > 0:
+         string += str(days) + (days == 1 and "day" or "days" ) + ", "
+     if len(string) > 0 or hours > 0:
+         string += str(hours) +  "h" + ", "
+     if len(string) > 0 or minutes > 0:
+         string += str(minutes) + "m" #+ ", "
+
+     return string;
 
 @app.route('/dsvrprocess', methods = ['POST'])
 def dsvrprocess():
@@ -281,19 +311,21 @@ def main():
     peer_data = parsepeerdata()
 
     #Get system uptime and format nicely
-    with open('/proc/uptime','r') as f:
-        uptime_seconds = float(f.readline().split()[0])
-        uptime_string = str(timedelta(seconds = uptime_seconds))
-        delay = timedelta(seconds = uptime_seconds)
-        if (delay.days > 0):
-            out = str(delay).replace(" days, ", ":")
-            out = str(delay).replace(" day, ", ":")
-        else:
-            out = "0:" + str(delay)
-        outAr = out.split(':')
-        outAr = ["%02d" % (int(float(x))) for x in outAr]
-        out   = ":".join(outAr)
-        uptime_string = str(out)
+#    with open('/proc/uptime','r') as f:
+#        uptime_seconds = float(f.readline().split()[0])
+#        uptime_string = str(timedelta(seconds = uptime_seconds))
+#        delay = timedelta(seconds = uptime_seconds)
+#        if (delay.days > 0):
+#            out = str(delay).replace(" days, ", ":")
+#            out = str(delay).replace(" day, ", ":")
+#        else:
+#            out = "0:" + str(delay)
+#        outAr = out.split(':')
+#        outAr = ["%02d" % (int(float(x))) for x in outAr]
+#        out   = ":".join(outAr)
+#        uptime_string = str(out)
+
+    uptime_string = uptime()
 
     #Testing updates INI file
     config = getdsvrini("dsvr.ini")
