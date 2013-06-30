@@ -124,7 +124,9 @@ def parsepeerdata():
             if "#interestingdomains" in key:
                 peer_detail['interestingdomains'] = listitem.split(' ',2)[1]
             elif "pty" in key:
-                vpnserverstr = re.findall(r'[0-9]+(?:\.[0-9]+){3}', listitem)
+                r = re.compile('pptp(.*?)--nolaunchpppd')
+                m = r.search(listitem)
+                vpnserverstr = m.group(1).strip()
                 peer_detail['vpnserver'] = vpnserverstr
             elif "name" in key:
                 peer_detail['username'] = listitem.split(' ',2)[1]
