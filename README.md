@@ -12,8 +12,8 @@ This project serves to address each of the above - see the FEATURES section.
 
 **FEATURES**
 
-![SCREENSHOT](http://s21.postimg.org/hram13auf/dsvr_logical_v0_2.png)
-![SCREENSHOT](http://s22.postimg.org/6rg7xnif5/dsvr_physical_v0_2.png)
+![SCREENSHOT](https://raw.github.com/dboyd13/DSVR/master/screenshots/dsvr-logical-v0.2.png)
+![SCREENSHOT](https://raw.github.com/dboyd13/DSVR/master/screenshots/dsvr-physical-v0.2.png)
 
 1) Per-site VPN routing down specific VPN connections whilst all other traffic goes down the native internet connection, for example:  
 
@@ -31,7 +31,7 @@ This project serves to address each of the above - see the FEATURES section.
 7) CLI access via SSH  
 8) Web administration portal 
 
-![SCREENSHOT] (http://s11.postimg.org/mo6lurjyr/screenshot1.jpg)
+![SCREENSHOT] (https://raw.github.com/dboyd13/DSVR/master/screenshots/webadmin.png)
 
 **PRE-REQUISTES**
 
@@ -64,13 +64,16 @@ New components required:
 
 1) Flash your SD card with Raspbain (Wheezy 2012-12-16) http://downloads.raspberrypi.org/images/raspbian/2012-12-16-wheezy-raspbian/2012-12-16-wheezy-raspbian.zip  
 2) Boot-up your RPi with the on-board NIC plugged into your network (without the USB NIC module installed), to obtain a DHCP address  
-3) Determine the RPi IP address (hint: look at your router web interface), and SSH into it - ssh pi@ipaddress
-4) Copy the dsvr-xxx.tar.gz/zip into your home folder (/home/pi) - copy using FTP over SSH (SFTP) (e.g. Cyberduck)  
-5) Extract the tar/zip file, cd into it's directory  
-6) Run the install script with sudo - sudo ./installdsvrpackage.sh - take note of any errors that may come up. This will take a while, as it will be installing a number of packages via the web.  
-7) Follow the prompts, and once it completes issue the 'shutdown -h -t now' command to power-down the RPi  
-8) With the power-off, plug the USB NIC into an available USB port.  
-9) Wire your RPI inline between your existing Modem/CE and your existing Router/Access Point as follows:  
+3) Determine the RPi IP address (hint: look at your router web interface), and SSH into it - ssh pi@ipaddress  
+4) Update apt - 'sudo apt-get update && sudo apt-get install ca-certificates'  
+5) Install GIT - 'sudo apt-get install git'  
+6) In case you're not, move to the home directory 'cd ~/'  
+7) Download DSVR from git - 'git clone https://github.com/dboyd13/DSVR.git'  
+8) 'cd DSVR'  
+9) Run the install script with sudo - sudo ./installdsvrpackage.sh - take note of any errors that may come up. This will take a while, as it will be installing a number of packages via the web.  
+10) Follow the prompts, and once it completes issue the 'sudo shutdown -h now' command to power-down the RPi  
+11) With the power-off, plug the USB NIC into an available USB port.  
+12) Wire your RPI inline between your existing Modem/CE and your existing Router/Access Point as follows:  
 
     eth0 (onboard) is 'internet side'
     eth1 (usb) is 'lan side'
@@ -95,12 +98,12 @@ New components required:
                   DHCP Client         SSH server
                    NAT (Hide)         VPN gateway
 
-10) Power-up the RPi, whilst it's booting power-down and power-up both your Modem/CE and your Router/Access Point  
-11) Wait a while for things to come up, I'd guess around 3-5mins  
-12) On your Router/Access Point verify that the WAN interface has received a DHCP lease from the RPi, something in the 10.254.254.x range  
-13) Verify that the internet is still working from your client machines. If not wait a while longer, else something has gone wrong.  
-14) Verify you can ssh to your RPi - ssh pi@10.254.254.254, verify that the RPi can access the internet both via IP and DNS.  
-15) Verify that you pass the ShieldsUp! (www.grc.com/shieldsup) stealth test, this is to test the SPI firewall is functional.  
+13) Power-up the RPi, whilst it's booting power-down and power-up both your Modem/CE and your Router/Access Point  
+14) Wait a while for things to come up, I'd guess around 3-5mins  
+15) On your Router/Access Point verify that the WAN interface has received a DHCP lease from the RPi, something in the 10.254.254.x range  
+16) Verify that the internet is still working from your client machines. If not wait a while longer, else something has gone wrong.  
+17) Verify you can ssh to your RPi - ssh pi@10.254.254.254, verify that the RPi can access the internet both via IP and DNS.  
+18) Verify that you pass the ShieldsUp! (www.grc.com/shieldsup) 'All Service Ports' stealth test, this is to test the SPI firewall is functional.  
 
 The device should be a functional pass-through router/firewall at this point, see the next section to setup per-site VPNs.  
 
@@ -108,7 +111,7 @@ The device should be a functional pass-through router/firewall at this point, se
 
 1) Browse to http://10.254.254.254  
 2) Click 'add' to add a PPTP VPN connection  
-3) Input all fields, and specify which sites you want to be routed down this connection, suggest you include a unique 'ip address checker' (aruljohn.com, strongvpn.com) site for each - this will help in verifying it's functional  
+3) Input all fields (note that VPN server MUST be an IP address - see TODO), and specify which sites you want to be routed down this connection, suggest you include a unique 'ip address checker' (aruljohn.com, strongvpn.com) site for each - this will help in verifying it's functional  
 4) Click 'update', then 'back'  
 5) Repeat 2-4 for each required PPTP VPN.  
 6) Reboot router  
