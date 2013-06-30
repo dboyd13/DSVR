@@ -9,7 +9,7 @@
 <form name="myform" action="/modifypptp" method="POST">
 <p>
 Friendly Name:<input type="text" name="friendlyname" value={{ peerdata[peerfile]['friendlyname'] }}></input><br>
-VPN Server: <input type="text" name="vpnserver" value={{ peerdata[peerfile]['vpnserver'][0]}}></input><br>
+VPN Server: <input type="text" name="vpnserver" value={{ peerdata[peerfile]['vpnserver']}}></input><br>
 Username: <input type="text" name="username" value={{ peerdata[peerfile]['username']}}></input><br>
 Password: <input type="password" name="password" value={{ peerdata[peerfile]['password']}}></input><br>
 MTU: <input type="text" name="mtu" value={{ peerdata[peerfile]['mtu']}}></input><br>
