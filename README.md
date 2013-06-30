@@ -65,16 +65,17 @@ New components required:
 1) Flash your SD card with Raspbain (Wheezy 2012-12-16) http://downloads.raspberrypi.org/images/raspbian/2012-12-16-wheezy-raspbian/2012-12-16-wheezy-raspbian.zip  
 2) Boot-up your RPi with the on-board NIC plugged into your network (without the USB NIC module installed), to obtain a DHCP address  
 3) Determine the RPi IP address (hint: look at your router web interface), and SSH into it - ssh pi@ipaddress  
-4) Update apt - 'sudo apt-get update && sudo apt-get install ca-certificates'  
-5) Install GIT - 'sudo apt-get install git'  
-6) In case you're not, move to the home directory 'cd ~/'  
-7) Download DSVR from git - 'git clone https://github.com/dboyd13/DSVR.git ./dsvr-source'  
-8) 'cd dsvr-source'  
-9) Run the install script with sudo - sudo ./installdsvrpackage.sh - take note of any errors that may come up. This will take a while, as it will be installing a number of packages via the web.  
-10) Optionally remove the "source" folder - 'rm -r ~/dsvr-source'
-11) Follow the prompts, and once it completes issue the 'sudo shutdown -h now' command to power-down the RPi  
-12) With the power-off, plug the USB NIC into an available USB port.  
-13) Wire your RPI inline between your existing Modem/CE and your existing Router/Access Point as follows:  
+4) Run `sudo raspi-config`, expand_rootfs, change_pass, change_locale, change_timezone, boot behavior (desktop no). Reboot - yes  
+5) SSH back into the RPi, then update apt - `sudo apt-get update && sudo apt-get install ca-certificates`  
+6) Install GIT - `sudo apt-get install git`  
+7) In case you're not already there, move to the home directory `cd ~/`  
+8) Download DSVR from git - `git clone https://github.com/dboyd13/DSVR.git ./dsvr-source`  
+9) `cd dsvr-source`  
+10) Run the install script with sudo - `sudo ./installdsvrpackage.sh` - take note of any errors that may come up. This will take a while, as it will be installing a number of packages via the web.  
+11) Optionally remove the "source" folder - `rm -r ~/dsvr-source`
+12) Follow the prompts, and once it completes issue the `sudo shutdown -h now` command to power-down the RPi  
+13) With the power-off, plug the USB NIC into an available USB port.  
+14) Wire your RPI inline between your existing Modem/CE and your existing Router/Access Point as follows:  
 
     eth0 (onboard) is 'internet side'
     eth1 (usb) is 'lan side'
@@ -99,12 +100,12 @@ New components required:
                   DHCP Client         SSH server
                    NAT (Hide)         VPN gateway
 
-14) Power-up the RPi, whilst it's booting power-down and power-up both your Modem/CE and your Router/Access Point  
-15) Wait a while for things to come up, I'd guess around 3-5mins  
-16) On your Router/Access Point verify that the WAN interface has received a DHCP lease from the RPi, something in the 10.254.254.x range  
-17) Verify that the internet is still working from your client machines. If not wait a while longer, else something has gone wrong.  
-18) Verify you can ssh to your RPi - ssh pi@10.254.254.254, verify that the RPi can access the internet both via IP and DNS.  
-19) Verify that you pass the ShieldsUp! (www.grc.com/shieldsup) 'All Service Ports' stealth test, this is to test the SPI firewall is functional.  
+15) Power-up the RPi, whilst it's booting power-down and power-up both your Modem/CE and your Router/Access Point  
+16) Wait a while for things to come up, I'd guess around 3-5mins  
+17) On your Router/Access Point verify that the WAN interface has received a DHCP lease from the RPi, something in the 10.254.254.x range  
+18) Verify that the internet is still working from your client machines. If not wait a while longer, else something has gone wrong.  
+19) Verify you can ssh to your RPi - ssh pi@10.254.254.254, verify that the RPi can access the internet both via IP and DNS.  
+20) Verify that you pass the ShieldsUp! (www.grc.com/shieldsup) 'All Service Ports' stealth test, this is to test the SPI firewall is functional.  
 
 The device should be a functional pass-through router/firewall at this point, see the next section to setup per-site VPNs.  
 
