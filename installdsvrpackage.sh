@@ -2,6 +2,8 @@
 # DSVR (Domain Specific VPN Router)
 # Copyright 2013 Darran Boyd
 #
+# dboyd13 [at @] gmail.com
+#
 # Licensed under the "Attribution-NonCommercial-ShareAlike" Vizsage
 # Public License (the "License"). You may not use this file except
 # in compliance with the License. Roughly speaking, non-commercial
