@@ -10,6 +10,8 @@ If you're using a VPN service today, you may have found the following limitation
 
 This project serves to address each of the above - see the FEATURES section.  
 
+Please review my blog post here http://darranboyd.wordpress.com/2013/07/05/selective-vpn-routing-solution-dsvr/  
+
 **FEATURES**
 
 ![SCREENSHOT](https://raw.github.com/dboyd13/DSVR/master/screenshots/dsvr-logical-v0.2.png)
