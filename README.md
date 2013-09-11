@@ -73,9 +73,9 @@ New components required:
 7) In case you're not already there, move to the home directory `cd ~/`  
 8) Download DSVR from git - `git clone https://github.com/dboyd13/DSVR.git ./dsvr-source`  
 9) `cd dsvr-source`  
-10) Run the install script with sudo - `sudo ./installdsvrpackage.sh` - take note of any errors that may come up. This will take a while, as it will be installing a number of packages via the web.  
-11) Optionally remove the "source" folder - `rm -r ~/dsvr-source`  
-12) Follow the prompts, and once it completes issue the `sudo shutdown -h now` command to power-down the RPi  
+10) Run the install script with sudo - `sudo ./installdsvrpackage.sh` - take note of any errors that may come up, note that the failure to start the ISC DHCP Server is expected and not an issue. This will take a while, as it will be installing a number of dependent packages via the web.  
+11) Remove the "source" folder - `rm -r ~/dsvr-source`  
+12) Issue the `sudo shutdown -h now` command to power-down the RPi  
 13) With the power-off, plug the USB NIC into an available USB port.  
 14) Wire your RPI inline between your existing Modem/CE and your existing Router/Access Point as follows:  
 
