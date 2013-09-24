@@ -138,7 +138,7 @@ Should be working now. Enjoy.
 	- create VERSION file based on provided arg[0]  
 
 	dsvr-webadmin.py  
-	- Allow hostname OR IP address input/parsing/encoding for peer VPN server.  
+	- Allow hostname OR IP address input/parsing/encoding for peer VPN server. - FIXED.
 	- Read and display VERSION file  
 	- Don't assume 'require-mppe-128' and allow user to specify PPTP encryption (or not)
 
