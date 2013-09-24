@@ -52,7 +52,7 @@ New components required:
 **KNOWN LIMITATIONS**
 
 1) Theoretical 100mbit/s - likely less due to RPi using USB bus.  
-2) Cannot perform source-based VPN routing without removal of existing NAT boundary, so that real sources can be determined.  
+2) Cannot perform source-based VPN routing without removal of existing NAT boundary, so that real sources can be determined. (see WIKI for workaround)
 3) Currently assumes your LAN subnet is 192.168.1.0 (see TODO)  
 4) Currently only support PPTP based VPNs (see TODO)  
 
