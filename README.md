@@ -1,4 +1,4 @@
-###DSVR (Domain-Specific VPN Router)###
+### DSVR (Domain-Specific VPN Router)
 
 **PURPOSE**
 
@@ -33,7 +33,7 @@ Please review my blog post here http://darranboyd.wordpress.com/2013/07/05/selec
 7) CLI access via SSH  
 8) Web administration portal 
 
-![SCREENSHOT] (https://raw.github.com/dboyd13/DSVR/master/screenshots/webadmin.png)
+![SCREENSHOT](https://raw.github.com/dboyd13/DSVR/master/screenshots/webadmin.png)
 
 **PRE-REQUISTES**
 
@@ -82,7 +82,7 @@ New components required:
     eth0 (onboard) is 'internet side'
     eth1 (usb) is 'lan side'
 
-
+```
                         eth (inside)      eth (wan)
                         DHCP Server       DHCP Client
       +-----+           +                 NAT (Hide)        +-----+
@@ -101,7 +101,7 @@ New components required:
                eth0 (onboard)         Web admin server
                   DHCP Client         SSH server
                    NAT (Hide)         VPN gateway
-
+```
 15) Power-up the RPi, whilst it's booting power-down and power-up both your Modem/CE and your Router/Access Point  
 16) Wait a while for things to come up, I'd guess around 3-5mins  
 17) On your Router/Access Point verify that the WAN interface has received a DHCP lease from the RPi, something in the 10.254.254.x range  
